@@ -1,5 +1,7 @@
 using PetType;
 using AppointmentType;
+using System.ComponentModel.DataAnnotations;
+
 
 public class Appointment
 {
