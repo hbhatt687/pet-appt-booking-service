@@ -5,15 +5,15 @@ using System;
 
 namespace BookingService.Data
 {
-    private readonly AppDbContext _context;
-
-    public AppointmentRepo(AppDbContext context)
-    {
-        _context = context;
-    }
-
     public class AppointmentRepo : IAppointmentRepo
     {
+        private readonly AppDbContext _context;
+
+        public AppointmentRepo(AppDbContext context)
+        {
+            _context = context;
+        }
+        
         public void CreateAppointment(Appointment appt)
         {
             if (appt == null)
@@ -24,6 +24,11 @@ namespace BookingService.Data
             _context.Appointments.Add(appt);
         }
 
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
         public IEnumerable<Appointment> GetAllAppointments()
         {
             return _context.Appointments.ToList();
@@ -32,11 +37,6 @@ namespace BookingService.Data
         public Appointment GetAppointmentById(int id)
         {
             return _context.Appointments.FirstOrDefault(a => a.Id == id);
-        }
-
-        public bool SaveChages()
-        {
-            return (_context.SaveChages() >= 0);
         }
     }
 }

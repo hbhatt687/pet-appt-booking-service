@@ -1,7 +1,10 @@
-public enum PetType 
+namespace BookingService.Models
 {
-    Dog = 0,
-    Cat = 1,
-    Bird = 2,
-    Other = 3
+    public enum PetType 
+    {
+        Dog = 0,
+        Cat = 1,
+        Bird = 2,
+        Other = 3
+    }
 }

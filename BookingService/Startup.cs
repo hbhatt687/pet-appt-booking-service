@@ -28,6 +28,7 @@ namespace BookingService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
+            services.AddScoped<IAppointmentRepo, AppointmentRepo>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
