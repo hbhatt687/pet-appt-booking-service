@@ -55,6 +55,8 @@ namespace BookingService
             {
                 endpoints.MapControllers();
             });
+            
+            PrepDb.PrepPopulation(app);
         }
     }
 }
