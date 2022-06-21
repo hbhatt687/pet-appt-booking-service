@@ -33,7 +33,6 @@ namespace BookingService
             services.AddScoped<IAppointmentRepo, AppointmentRepo>();
             services.AddControllers().AddJsonOptions(x =>
             {
-                // serialize enums as strings in api responses (e.g. Role)
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });;
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
