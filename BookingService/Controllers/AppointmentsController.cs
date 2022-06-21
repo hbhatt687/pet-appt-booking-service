@@ -54,5 +54,24 @@ namespace BookingService.Controllers
 
             return CreatedAtRoute(nameof(GetAppointmentById), new { Id = appointmentReadDto.Id }, appointmentReadDto);
         }
+
+        [HttpPut("{id:int}")]
+        public ActionResult<AppointmentReadDto> UpdateAppointment(AppointmentUpdateDto appointmentUpdateDto, int id)
+        {
+            var existingAppointment = _repository.GetAppointmentById(id);
+
+            if (existingAppointment == null)
+            {
+                return NotFound();
+            }
+
+            existingAppointment.Date = appointmentUpdateDto.Date;
+            existingAppointment.Type = appointmentUpdateDto.Type;
+            
+            _repository.UpdateAppointment(existingAppointment);
+            _repository.SaveChanges();
+
+            return Ok(_mapper.Map<AppointmentReadDto>(existingAppointment));
+        }
     }
 }

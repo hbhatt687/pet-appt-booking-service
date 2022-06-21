@@ -15,6 +15,7 @@ namespace BookingService.Dtos
         [JsonConverter(typeof(StringEnumConverter))]
         public PetType PetType { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
         [Required]

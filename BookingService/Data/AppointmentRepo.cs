@@ -38,5 +38,15 @@ namespace BookingService.Data
         {
             return _context.Appointments.FirstOrDefault(a => a.Id == id);
         }
+
+        public void UpdateAppointment(Appointment appt)
+        {
+            if (appt == null)
+            {
+                throw new ArgumentNullException(nameof(appt));
+            }
+
+            _context.Appointments.Update(appt);
+        }
     }
 }

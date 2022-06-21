@@ -11,6 +11,8 @@ namespace BookingService.Profiles
             // Source -> Target
             CreateMap<Appointment, AppointmentReadDto>();
             CreateMap<AppointmentCreateDto, Appointment>();
+            CreateMap<AppointmentUpdateDto, Appointment>();
+            CreateMap<Appointment, AppointmentUpdateDto>();
         }
     }
 }

@@ -12,5 +12,6 @@ namespace BookingService.Data
         Appointment GetAppointmentById(int id);
 
         void CreateAppointment(Appointment appt);
+        void UpdateAppointment(Appointment appt);
     }
 }
