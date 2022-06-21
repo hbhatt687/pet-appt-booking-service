@@ -13,5 +13,6 @@ namespace BookingService.Data
 
         void CreateAppointment(Appointment appt);
         void UpdateAppointment(Appointment appt);
+        void CancelAppointment(int id);
     }
 }

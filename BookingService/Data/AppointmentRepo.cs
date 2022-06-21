@@ -48,5 +48,17 @@ namespace BookingService.Data
 
             _context.Appointments.Update(appt);
         }
+
+        public void CancelAppointment(int id)
+        {
+           var appt = _context.Appointments.FirstOrDefault(a => a.Id == id);
+           
+           if (appt == null)
+           {
+               throw new ArgumentNullException(nameof(appt));
+           }
+
+           _context.Appointments.Remove(appt);
+        }
     }
 }

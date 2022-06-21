@@ -73,5 +73,21 @@ namespace BookingService.Controllers
 
             return Ok(_mapper.Map<AppointmentReadDto>(existingAppointment));
         }
+
+        [HttpDelete("{id:int}")]
+        public ActionResult CancelAppointment(int id)
+        {
+            var existingAppointment = _repository.GetAppointmentById(id);
+
+            if (existingAppointment == null)
+            {
+                return NotFound();
+            }
+            
+            _repository.CancelAppointment(id);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
